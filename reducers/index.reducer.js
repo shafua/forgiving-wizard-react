@@ -9,6 +9,12 @@ export default (
       value: '',
       validation: ''
     },
+    country:'',
+    city:'',
+    street:'',
+    bulilding: '',
+    apartment:'',
+    zip:'',
   },
   action) => {
   console.log(action)
