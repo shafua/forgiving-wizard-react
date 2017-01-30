@@ -12,9 +12,6 @@ import Select from 'react-select';
 import SingleField from './SingleField'
 
 
-// Be sure to include styles at some point, probably during your bootstrapping
-import 'react-select/dist/react-select.css';
-
 const SecondPage = ({inputHandler, countryHandler, formState}) => {
 
   return (
@@ -30,7 +27,7 @@ const SecondPage = ({inputHandler, countryHandler, formState}) => {
                 .then((response) => response.json())
                 .then((json) => ({ options: json, complete: true }))
         }
-        onChange={countryHandler}
+        onChange={country => countryHandler(country.value)}
       />
       </div>
       <SingleField
@@ -78,10 +75,10 @@ const SecondPage = ({inputHandler, countryHandler, formState}) => {
 }
 
 export default connect(
-  (state) => ({formState: state}),
+  state => ({formState: state}),
   dispatch => ({
-    inputHandler: (fieldName) => (e) => dispatch(changeField(fieldName, e.target.value)),
-    countryHandler: (country) => dispatch(changeField('country', country.value)),
+    inputHandler: fieldName => e => dispatch(changeField(fieldName, e.target.value)),
+    countryHandler: country => dispatch(changeField('country', country)),
 
   })
 )(SecondPage);

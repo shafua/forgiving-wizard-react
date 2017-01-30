@@ -3,16 +3,23 @@ import {connect} from 'react-redux'
 
 
 
-import { changeField, changeEmailField } from '../actions'
+import { changeField, changeEmailField, changeBirthField } from '../actions'
+
+// external components
+import Select from 'react-select';
 
 // internal components
 import SingleField from './SingleField'
 import EmailField from './EmailField'
 
+let forgivingMonth = [
+  {"label": "01 January", "value": 1},
+  {"label": "02 Febuary", "value": 2},
+  {"label": "03 March", "value": 3},
+]
 
 
-
-const FirstPage = ({inputHandler, emailHandler, formState}) => {
+const FirstPage = ({inputHandler, emailHandler, birthHandler, birthMonthHandler, formState}) => {
   return (
     <div>
         <h3>First page</h3>
@@ -33,12 +40,30 @@ const FirstPage = ({inputHandler, emailHandler, formState}) => {
             constent={formState.surname}
           />
           <SingleField
-            title="Date of birth"
-            name={'birth'}
+            title="Day of birth"
+            name={'birthDay'}
             inputType="number"
+            min={1}
+            max={31}
             placeholder="temprorary"
-            handler={inputHandler('birth')}
-            constent={formState.birth}
+            handler={birthHandler('day')}
+            constent={formState.birth.day}
+          />
+          <Select
+            name="month"
+            value={formState.birth.month}
+            options={forgivingMonth}
+            onChange={month => birthMonthHandler(month.value)}
+          />
+          <SingleField
+            title="Year of birth"
+            name={'birthYear'}
+            inputType="number"
+            min={1900}
+            max={+((new Date().getFullYear()) - 13)}
+            placeholder="temprorary"
+            handler={birthHandler('year')}
+            constent={formState.birth.year}
           />
           <EmailField
             name="email"
@@ -57,8 +82,10 @@ const FirstPage = ({inputHandler, emailHandler, formState}) => {
 export default connect(
   (state) => ({formState: state}),
   dispatch => ({
-    inputHandler: (fieldName) => (e) => dispatch(changeField(fieldName, e.target.value)),
-    emailHandler: (e) => dispatch(changeEmailField(e.target.value))
+    inputHandler: fieldName => e => dispatch(changeField(fieldName, e.target.value)),
+    birthHandler: fieldName => e => dispatch(changeBirthField(fieldName, e.target.value)),
+    birthMonthHandler: month => dispatch(changeBirthField('month', month)),
+    emailHandler: e => dispatch(changeEmailField(e.target.value))
 
   })
 )(FirstPage)

@@ -4,7 +4,11 @@ export default (
   state = {
     name: '',
     surname: '',
-    birth: '',
+    birth: {
+      day: null,
+      month: null,
+      year: null,
+    },
     email: {
       value: '',
       validation: ''
@@ -14,7 +18,7 @@ export default (
     street:'',
     bulilding: '',
     apartment:'',
-    zip:'',
+    zip: null,
   },
   action) => {
   console.log(action)
@@ -31,7 +35,13 @@ export default (
         validation: action.validation
       }
     }
+    case DO.BIRTHCHANGE: return {
+      ...state,
+      birth: {
+        ...state.birth,
+        [action.fieldName]: action.value
+      }
+    }
+    default: return state
   }
-
-  return state
 }

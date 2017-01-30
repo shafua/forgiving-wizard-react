@@ -13,3 +13,9 @@ export let changeEmailField = (email) => ({
   value: email,
   validation: emailValidator(email)
 })
+
+export let changeBirthField = (fieldName, value) => ({
+  type: DO.BIRTHCHANGE,
+  fieldName,
+  value,
+})
