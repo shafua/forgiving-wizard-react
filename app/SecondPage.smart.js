@@ -16,23 +16,20 @@ import SingleField from './SingleField'
 import 'react-select/dist/react-select.css';
 
 const SecondPage = ({inputHandler, countryHandler, formState}) => {
-    var options = [
-        {"label": "Albania", "value": "AL"},
-        {"label": "Argentina", "value": "AR"},
-        {"label": "Armenia", "value": "AM"},
-        {"label": "Aruba", "value": "AW"},
-        {"label": "Australia", "value": "AU"},
-        {"label": "Austria", "value": "AT"},
-    ];
 
   return (
     <div>
       <h3>Secon Page</h3>
       <div>Country
-      <Select
+      <Select.Async
         name="country"
         value={formState.country}
-        options={options}
+
+        loadOptions={
+          () => fetch(`/utils/countries.json`)
+                .then((response) => response.json())
+                .then((json) => ({ options: json, complete: true }))
+        }
         onChange={countryHandler}
       />
       </div>
@@ -84,7 +81,7 @@ export default connect(
   (state) => ({formState: state}),
   dispatch => ({
     inputHandler: (fieldName) => (e) => dispatch(changeField(fieldName, e.target.value)),
-    countryHandler: (country) => dispatch(changeField('country', country)),
+    countryHandler: (country) => dispatch(changeField('country', country.value)),
 
   })
 )(SecondPage);
