@@ -19,6 +19,9 @@ export default (
     bulilding: '',
     apartment:'',
     zip: null,
+    occupation: '',
+    hobbies: '',
+    languages: '',
   },
   action) => {
   console.log(action)
