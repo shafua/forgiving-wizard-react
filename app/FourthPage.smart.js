@@ -19,7 +19,7 @@ const FourthPage = ({inputHandler, formState}) => {
         inputType="text"
         placeholder="enter your af1"
         handler={inputHandler('af1')}
-        constent={formState.af1}
+        content={formState.af1}
       />
       <SingleField
         title="Additional Field 2"
@@ -27,7 +27,7 @@ const FourthPage = ({inputHandler, formState}) => {
         inputType="text"
         placeholder="enter your af2"
         handler={inputHandler('af2')}
-        constent={formState.af2}
+        content={formState.af2}
       />
       <SingleField
         title="Additional Field 3"
@@ -35,7 +35,7 @@ const FourthPage = ({inputHandler, formState}) => {
         inputType="text"
         placeholder="enter your af3"
         handler={inputHandler('af3')}
-        constent={formState.af3}
+        content={formState.af3}
       />
     </div>
   );

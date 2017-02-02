@@ -39,7 +39,7 @@ const FirstPage = ({inputHandler, emailHandler, birthHandler, birthMonthHandler,
             inputType="text"
             placeholder="your name"
             handler={inputHandler('name')}
-            constent={formState.name}
+            content={formState.name}
           />
           <SingleField
             title="Surname"
@@ -47,7 +47,7 @@ const FirstPage = ({inputHandler, emailHandler, birthHandler, birthMonthHandler,
             inputType="text"
             placeholder="your surname"
             handler={inputHandler('surname')}
-            constent={formState.surname}
+            content={formState.surname}
           />
         <div>
             <InputLabel title={"Date of birth"} />
@@ -60,7 +60,7 @@ const FirstPage = ({inputHandler, emailHandler, birthHandler, birthMonthHandler,
                   max={31}
                   placeholder="day"
                   handler={birthHandler('day')}
-                  constent={formState.birth.day}
+                  content={formState.birth.day}
                 />
               </div>
               <div style={{'flexGrow':2}}>
@@ -80,7 +80,7 @@ const FirstPage = ({inputHandler, emailHandler, birthHandler, birthMonthHandler,
                   max={+((new Date().getFullYear()) - 13)}
                   placeholder="year"
                   handler={birthHandler('year')}
-                  constent={formState.birth.year}
+                  content={formState.birth.year}
                 />
               </div>
             </div>

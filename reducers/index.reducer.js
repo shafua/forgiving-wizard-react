@@ -5,9 +5,9 @@ export default (
     name: '',
     surname: '',
     birth: {
-      day: null,
-      month: null,
-      year: null,
+      day: '',
+      month: '',
+      year: '',
     },
     email: {
       value: '',
@@ -18,7 +18,7 @@ export default (
     street:'',
     bulilding: '',
     apartment:'',
-    zip: null,
+    zip: '',
     occupation: '',
     hobbies: '',
     languages: '',
@@ -27,7 +27,10 @@ export default (
     'af3': '',
   },
   action) => {
+  console.log('action')
   console.log(action)
+  console.log('state')
+  console.log(state)
 
   switch (action.type) {
     case DO.FIELDCHANGE: return {

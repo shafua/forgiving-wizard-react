@@ -38,7 +38,7 @@ const SecondPage = ({inputHandler, countryHandler, formState}) => {
         inputType="text"
         placeholder="enter your city"
         handler={inputHandler('city')}
-        constent={formState.city}
+        content={formState.city}
       />
       <SingleField
         title="Street"
@@ -46,7 +46,7 @@ const SecondPage = ({inputHandler, countryHandler, formState}) => {
         inputType="text"
         placeholder="enter your street"
         handler={inputHandler('street')}
-        constent={formState.street}
+        content={formState.street}
       />
       <SingleField
         title="Bulilding"
@@ -54,7 +54,7 @@ const SecondPage = ({inputHandler, countryHandler, formState}) => {
         inputType="text"
         placeholder="enter your bulilding number/code"
         handler={inputHandler('bulilding')}
-        constent={formState.bulilding}
+        content={formState.bulilding}
       />
       <SingleField
         title="Apartment"
@@ -62,7 +62,7 @@ const SecondPage = ({inputHandler, countryHandler, formState}) => {
         inputType="text"
         placeholder="enter your apartment/room number/id"
         handler={inputHandler('apartment')}
-        constent={formState.apartment}
+        content={formState.apartment}
       />
       <SingleField
         title="ZIP code"
@@ -70,7 +70,7 @@ const SecondPage = ({inputHandler, countryHandler, formState}) => {
         inputType="number"
         placeholder="enter your zip code"
         handler={inputHandler('zip')}
-        constent={formState.zip}
+        content={formState.zip}
       />
     </div>
   );

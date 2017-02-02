@@ -38,7 +38,7 @@ const ThirdPage = ({inputHandler, langsHandler, formState}) => {
         inputType="text"
         placeholder="enter your occupation"
         handler={inputHandler('occupation')}
-        constent={formState.occupation}
+        content={formState.occupation}
       />
       <SingleField
         title="Hobbies"
@@ -46,7 +46,7 @@ const ThirdPage = ({inputHandler, langsHandler, formState}) => {
         inputType="text"
         placeholder="enter your hobbies"
         handler={inputHandler('hobbies')}
-        constent={formState.hobbies}
+        content={formState.hobbies}
       />
     </div>
   );

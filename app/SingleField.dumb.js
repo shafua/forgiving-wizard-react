@@ -37,7 +37,7 @@ SingleField.propTypes = {
 	content: React.PropTypes.oneOfType([
 		React.PropTypes.string,
 		React.PropTypes.number,
-	]),
+	]).isRequired,
 	placeholder: React.PropTypes.string,
 	title: React.PropTypes.string,
 };
