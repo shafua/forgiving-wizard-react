@@ -10,6 +10,7 @@ import Select from 'react-select';
 
 // internal components
 import SingleField from './SingleField'
+import InputLabel from './InputLabel'
 
 
 const SecondPage = ({inputHandler, countryHandler, formState}) => {
@@ -17,11 +18,12 @@ const SecondPage = ({inputHandler, countryHandler, formState}) => {
   return (
     <div>
       <h3>Secon Page</h3>
-      <div>Country
+      <div>
+        <InputLabel title={"Country"} />
       <Select.Async
         name="country"
         value={formState.country}
-
+        placeholder="select or type"
         loadOptions={
           () => fetch(`/utils/countries.json`)
                 .then((response) => response.json())

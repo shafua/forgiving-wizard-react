@@ -3,10 +3,12 @@ import React from 'react';
 import FirstPage from './FirstPage'
 import SecondPage from './SecondPage'
 import ThirdPage from './ThirdPage'
+import FourthPage from './FourthPage'
 
 import emailValidator from '../utils/emailValidator'
 
 import 'react-select/dist/react-select.css';
+import '../styles/main.scss';
 
 export default props => (
   <div>
@@ -14,5 +16,6 @@ export default props => (
     <FirstPage />
     <SecondPage />
     <ThirdPage />
+    <FourthPage />
   </div>
   )

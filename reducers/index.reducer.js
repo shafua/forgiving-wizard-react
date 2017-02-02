@@ -22,6 +22,9 @@ export default (
     occupation: '',
     hobbies: '',
     languages: '',
+    'af1': '',
+    'af2': '',
+    'af3': '',
   },
   action) => {
   console.log(action)

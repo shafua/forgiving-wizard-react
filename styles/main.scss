@@ -1,0 +1,37 @@
+@mixin inputPlaceholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}
+}
+
+$block_Margin: 2px;
+
+.birth_block{
+  display:flex;
+  >div{
+    padding:5px;
+    div.Select-control{
+      margin: $block_Margin;
+      height: 40px;
+    }
+  }
+}
+
+.Select-control{
+  font-family: 'Times New Roman'
+}
+
+input.Select-control {
+  text-indent: 10px;
+  font-size: 16px;
+  margin: $block_Margin;
+  @include inputPlaceholder {
+      text-indent: 10px;   transition: text-indent 0.3s ease;
+  }
+  &:focus{
+    @include inputPlaceholder {
+        text-indent: -300px;   transition: text-indent 0.3s ease;
+    }
+  }
+}

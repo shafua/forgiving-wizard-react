@@ -1,7 +1,9 @@
 import React, {PropTypes} from 'react';
 
+import InputLabel from './InputLabel'
+
 const SingleField = ({
-  title = 'Single Field',
+  title,
   name,
   inputType,
   placeholder,
@@ -12,7 +14,8 @@ const SingleField = ({
   step
 }) => (
 	<div>
-		<label>{title}</label>
+		{title ? (<InputLabel title={title} />)
+            : null}
 		<input
 			name={name}
 			type={inputType}
@@ -21,7 +24,9 @@ const SingleField = ({
 			onChange={handler}
       max={max}
       min={min}
-      step={step} />
+      step={step}
+      className="Select-control"
+      />
 	</div>
 );
 

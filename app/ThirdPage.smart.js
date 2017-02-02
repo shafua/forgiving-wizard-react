@@ -10,25 +10,27 @@ import Select from 'react-select';
 
 // internal components
 import SingleField from './SingleField'
+import InputLabel from './InputLabel'
 
-
-const SecondPage = ({inputHandler, langsHandler, formState}) => {
+const ThirdPage = ({inputHandler, langsHandler, formState}) => {
   return (
     <div>
       <h3>Third Page</h3>
-      <div>Languages
-      <Select.Async
-        name="languages"
-        value={formState.languages}
-        multi
-        simpleValue
-        loadOptions={
-          () => fetch(`/utils/lang.json`)
-                .then((response) => response.json())
-                .then((json) => ({ options: json, complete: true }))
-        }
-        onChange={langsHandler}
-      />
+      <div>
+        <InputLabel title={"Languages"} />
+        <Select.Async
+          name="languages"
+          value={formState.languages}
+          placeholder="select or type"
+          multi
+          simpleValue
+          loadOptions={
+            () => fetch(`/utils/lang.json`)
+                  .then((response) => response.json())
+                  .then((json) => ({ options: json, complete: true }))
+          }
+          onChange={langsHandler}
+        />
       </div>
       <SingleField
         title="Occupation"
@@ -57,4 +59,4 @@ export default connect(
     langsHandler: langs => dispatch(changeField('languages', langs)),
 
   })
-)(SecondPage);
+)(ThirdPage);

@@ -1,5 +1,7 @@
 import React, {PropTypes} from 'react';
 
+import InputLabel from './InputLabel'
+
 const EmailField = ({
   title = 'Email Field',
   name,
@@ -9,13 +11,16 @@ const EmailField = ({
   validation
 }) => (
 	<div>
-		<label>{title}</label>
+    {title ? (<InputLabel title={title} />)
+            : null}
 		<input
 			name={name}
 			type="email"
   		placeholder={placeholder}
 			value={content}
-			onChange={handler} />
+			onChange={handler}
+      className="Select-control"
+      />
     {
       validation ?
         (validation === 'ok' ? <span style={{color: '#0f0'}}>ok</span>
