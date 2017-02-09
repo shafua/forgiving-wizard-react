@@ -100,9 +100,9 @@ const FirstPage = ({inputHandler, emailHandler, birthHandler, birthMonthHandler,
 
 
 export default connect(
-  (state) => ({formState: state}),
+  (state) => ({formState: state.firstPage}),
   dispatch => ({
-    inputHandler: fieldName => e => dispatch(changeField(fieldName, e.target.value)),
+    inputHandler: fieldName => e => dispatch(changeField('firstPage', fieldName, e.target.value)),
     birthHandler: fieldName => e => dispatch(changeBirthField(fieldName, e.target.value)),
     birthMonthHandler: month => dispatch(changeBirthField('month', month)),
     emailHandler: e => dispatch(changeEmailField(e.target.value))

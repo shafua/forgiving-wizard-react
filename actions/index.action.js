@@ -2,10 +2,11 @@ import DO from '../consts/actions'
 
 import emailValidator from '../utils/emailValidator'
 
-export let changeField = (fieldName, value) => ({
+export let changeField = (page, fieldName, value) => ({
   type: DO.FIELDCHANGE,
   fieldName,
-  value
+  value,
+  page
 })
 
 export let changeEmailField = (email) => ({

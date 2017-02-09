@@ -77,10 +77,10 @@ const SecondPage = ({inputHandler, countryHandler, formState}) => {
 }
 
 export default connect(
-  state => ({formState: state}),
+  state => ({formState: state.secondPage}),
   dispatch => ({
-    inputHandler: fieldName => e => dispatch(changeField(fieldName, e.target.value)),
-    countryHandler: country => dispatch(changeField('country', country)),
+    inputHandler: fieldName => e => dispatch(changeField('secondPage', fieldName, e.target.value)),
+    countryHandler: country => dispatch(changeField('secondPage', 'country', country)),
 
   })
 )(SecondPage);

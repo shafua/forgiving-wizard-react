@@ -42,9 +42,9 @@ const FourthPage = ({inputHandler, formState}) => {
 }
 
 export default connect(
-  state => ({formState: state}),
+  state => ({formState: state.fourthPage}),
   dispatch => ({
-    inputHandler: fieldName => e => dispatch(changeField(fieldName, e.target.value)),
+    inputHandler: fieldName => e => dispatch(changeField('fourthPage', fieldName, e.target.value)),
 
   })
 )(FourthPage);

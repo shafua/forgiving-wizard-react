@@ -53,10 +53,10 @@ const ThirdPage = ({inputHandler, langsHandler, formState}) => {
 }
 
 export default connect(
-  state => ({formState: state}),
+  state => ({formState: state.thirdPage}),
   dispatch => ({
-    inputHandler: fieldName => e => dispatch(changeField(fieldName, e.target.value)),
-    langsHandler: langs => dispatch(changeField('languages', langs)),
+    inputHandler: fieldName => e => dispatch(changeField('thirdPage', fieldName, e.target.value)),
+    langsHandler: langs => dispatch(changeField('thirdPage', 'languages', langs)),
 
   })
 )(ThirdPage);

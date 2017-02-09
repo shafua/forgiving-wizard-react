@@ -2,53 +2,65 @@ import DO from '../consts/actions'
 
 export default (
   state = {
-    name: '',
-    surname: '',
-    birth: {
-      day: '',
-      month: '',
-      year: '',
+    firstPage: {
+      name: '',
+      surname: '',
+      birth: {
+        day: '',
+        month: '',
+        year: '',
+      },
+      email: {
+        value: '',
+        validation: ''
+      }
     },
-    email: {
-      value: '',
-      validation: ''
+    secondPage: {
+      country:'',
+      city:'',
+      street:'',
+      bulilding: '',
+      apartment:'',
+      zip: ''
     },
-    country:'',
-    city:'',
-    street:'',
-    bulilding: '',
-    apartment:'',
-    zip: '',
-    occupation: '',
-    hobbies: '',
-    languages: '',
-    'af1': '',
-    'af2': '',
-    'af3': '',
+    thirdPage: {
+      occupation: '',
+      hobbies: '',
+      languages: ''
+    },
+    fourthPage: {
+      'af1': '',
+      'af2': '',
+      'af3': ''
+    }
   },
   action) => {
-  console.log('action')
-  console.log(action)
-  console.log('state')
-  console.log(state)
-
   switch (action.type) {
     case DO.FIELDCHANGE: return {
       ...state,
-      [action.fieldName]: action.value
+      [action.page]:{
+        ...state[action.page],
+        [action.fieldName]: action.value
+      }
     }
     case DO.EMAILCHANGE: return {
       ...state,
-      email: {
-        value: action.value,
-        validation: action.validation
+      firstPage: {
+        ...state.firstPage,
+        email: {
+          value: action.value,
+          validation: action.validation
+        }
       }
     }
     case DO.BIRTHCHANGE: return {
       ...state,
-      birth: {
-        ...state.birth,
-        [action.fieldName]: action.value
+      firstPage: {
+        ...state.firstPage,
+        birth: {
+          ...state.firstPage.birth,
+          [action.fieldName]: action.value
+        }
       }
     }
     default: return state
