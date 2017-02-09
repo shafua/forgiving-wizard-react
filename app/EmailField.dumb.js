@@ -19,14 +19,12 @@ const EmailField = ({
   		placeholder={placeholder}
 			value={content}
 			onChange={handler}
-      className="Select-control"
+      className={
+        "Select-control" +
+        (validation === 'wrong' ? " email_wrong"
+          : "")
+      }
       />
-    {
-      validation ?
-        (validation === 'ok' ? <span style={{color: '#0f0'}}>ok</span>
-      : <span style={{color: '#f00'}}>wrong</span>)
-      : null
-    }
 	</div>
 );
 
