@@ -35,3 +35,25 @@ input.Select-control {
     }
   }
 }
+
+.page{
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+#main{
+  position: relative;
+  width:80%;
+  min-width: 600px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.sub_main{
+  position: relative;
+  min-width: 600px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
